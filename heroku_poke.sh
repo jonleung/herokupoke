@@ -1,5 +1,5 @@
 count_sheep () {
-	sleep 100
+	sleep 10
 }
 
 function poke {
@@ -8,6 +8,7 @@ function poke {
     	count_sheep
     else
     	echo -en "\007"
+			echo FAIL $1 
     	poke $1
 	fi
 }
