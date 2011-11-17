@@ -1,6 +1,6 @@
 #Settings
 PERIOD_IN_SECONDS=120 #How often do you want to check that your websites are up?
-SECONDS_TO_WAIT_UNTIL_TRY_UNREACHABLE_SITE_AGAIN=25 #When your site cannot be reached, how long do you want to wait before you try reaching it again?
+SECONDS_TO_WAIT_UNTIL_TRY_UNREACHABLE_SITE_AGAIN=30 #When your site cannot be reached, how long do you want to wait before you try reaching it again?
 NUMBER_OF_TIMES_TO_TRY_TO_REACH_UNREACHABLE_SITE_BEFORE_CALLING=3 #How many times do you want to try getting to your website before you get a call?
 MAXIMUM_RATE_OF_CALLS_IN_SECONDS=3600 #What is the maximum rate that you would recieve a call? Default = 1hr 3600 seconds
 
@@ -8,8 +8,8 @@ MAXIMUM_RATE_OF_CALLS_IN_SECONDS=3600 #What is the maximum rate that you would r
 MP3_FILE_URL="http://dl.dropbox.com/u/49019009/server_down.mp3"
 PHONE_TO_CALL_WHEN_SERVER_IS_DOWN="555-555-5555"
 
-ACCOUNTSID="ACc458a..." #Find this here: https://www.twilio.com/user/account
-AUTHTOKEN="eee53145.." #Find this here: https://www.twilio.com/user/account
+ACCOUNTSID="ACc458..." #Find this here: https://www.twilio.com/user/account
+AUTHTOKEN="eee5314..." #Find this here: https://www.twilio.com/user/account
 CALLERID="999-999-9999" #Make sure you register for one here: https://www.twilio.com/user/account/phone-numbers/incoming
 
 #We're using the API described here: http://labs.twilio.com/bash/index
@@ -52,7 +52,7 @@ function poke {
 			if [ "$DELTA" -gt "$MAXIMUM_RATE_OF_CALLS_IN_SECONDS" ]
 				then
 				echo calling you...
-				echo "$MP3_FILE_URL" | ./twilio_call -d "$CALLERID" -u "$ACCOUNTSID" -p "$AUTHTOKEN" "$PHONE_TO_CALL_WHEN_SERVER_IS_DOWN"
+				echo "$MP3_FILE_URL" | ./twilio-call -d "$CALLERID" -u "$ACCOUNTSID" -p "$AUTHTOKEN" "$PHONE_TO_CALL_WHEN_SERVER_IS_DOWN"
 				LAST_CALL_TIME=CURTIME
 				DOWN_COUNT=0
 			fi
@@ -61,6 +61,7 @@ function poke {
 		sleep $SECONDS_TO_WAIT_UNTIL_TRY_UNREACHABLE_SITE_AGAIN
 		poke_once $1
 	done
+	sleep 5
 }
 
 while :
@@ -75,6 +76,5 @@ do
 	poke "uponstage.org"
 
 	sleep $PERIOD_IN_SECONDS
-
 	echo
 done

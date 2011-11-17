@@ -6,6 +6,7 @@ Instructions:
     cd directory_where_heroku-poke_is_located
     chmod 775 twilio-call
     chmod +x heroku-poke.sh
+    chmod +x runner.sh
 
   Then make sure configure all the settings inside of heroku-poke.
   You can but do not need to modify the Heroku Poke settings, but you do need to enter in the Twilio information, namely:
@@ -21,9 +22,9 @@ Instructions:
     
     poke "yoursite.com"
     
-  Save your script and then run it by executing:
+  Save your script and then run it by executing (note that this script restarts heroku-poke.sh if it ever segfaults):
     
-    ./heroku-poke.sh
+    ./runner.sh
     
 Note that we are assuming that your site is alive if we grep the curl of your site and find HTML in it.
 
