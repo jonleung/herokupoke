@@ -17,4 +17,14 @@ Instructions:
     AUTHTOKEN="eee53145.." #Find this here: https://www.twilio.com/user/account
     CALLERID="999-999-9999" #Make sure you register for one here: https://www.twilio.com/user/account/phone-numbers/incoming
   
+  Then "poke" the appropriet set of websites at the bottom of the page:
+    
+    poke "yoursite.com"
+    
+  Save your script and then run it by executing:
+    
+    ./heroku-poke.sh
+    
 Note that we are assuming that your site is alive if we grep the curl of your site and find HTML in it.
+
+    
