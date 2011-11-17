@@ -1,6 +1,6 @@
 #Settings
 PERIOD_IN_SECONDS=120 #How often do you want to check that your websites are up?
-SECONDS_TO_WAIT_UNTIL_TRY_UNREACHABLE_SITE_AGAIN=4 #When your site cannot be reached, how long do you want to wait before you try reaching it again?
+SECONDS_TO_WAIT_UNTIL_TRY_UNREACHABLE_SITE_AGAIN=25 #When your site cannot be reached, how long do you want to wait before you try reaching it again?
 NUMBER_OF_TIMES_TO_TRY_TO_REACH_UNREACHABLE_SITE_BEFORE_CALLING=3 #How many times do you want to try getting to your website before you get a call?
 MAXIMUM_RATE_OF_CALLS_IN_SECONDS=3600 #What is the maximum rate that you would recieve a call? Default = 1hr 3600 seconds
 
@@ -73,7 +73,6 @@ do
 	poke "hackertrails.com"
 	poke "thebokchoy.com"
 	poke "uponstage.org"
-	poke "awo378ehiwo93arf8.com"
 
 	sleep $PERIOD_IN_SECONDS
 
