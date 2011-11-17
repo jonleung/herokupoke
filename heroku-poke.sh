@@ -74,7 +74,7 @@ do
 	poke "hackertrails.com"
 	poke "thebokchoy.com"
 	poke "uponstage.org"
-
+	echo "wait $PERIOD_IN_SECONDS..."
 	sleep $PERIOD_IN_SECONDS
 	echo
 done
